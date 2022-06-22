@@ -1,11 +1,12 @@
 # Import libraries
 import json
-
+import telegram_send
 import datetime as DT
 import requests
 import time
 import pymysql
-import socket
+
+import min_max_price
 
 
 class Currency:
@@ -55,7 +56,7 @@ class Currency:
                                  data['price'] + """ )"""
 
                 cursor.execute(ArtistTableSql)
-                print(date)
+                #print(date)
                 # Analyze price for chosen currency
                 # Get price for current day
                 number_of_elements = cursor.execute(
@@ -98,8 +99,25 @@ class Currency:
                 #print("Price difference - ", price_diff)
                 #print("Maximus price was define - ", maximum_price)
                 #print("Minimum price was define - ", minimum_price)
-                if diff_percent > 1:
-                    print("The", data['symbol'], "up more the 1%")
+                crypto_name = data['symbol']
+                if diff_percent > 100:
+                    print("The ", data['symbol'], " up more the 1%")
+                    telegram_send.send(messages=["The " + crypto_name + " up more the 100%"])
+                elif diff_percent > 75:
+                    print("The ", data['symbol'], " up more the 1%")
+                    telegram_send.send(messages=["The " + crypto_name + " up more the 1%"])
+                elif diff_percent > 50:
+                    print("The ", data['symbol'], " up more the 1%")
+                    telegram_send.send(messages=["The " + crypto_name + " up more the 1%"])
+                elif diff_percent > 20:
+                    print("The ", data['symbol'], " up more the 1%")
+                    telegram_send.send(messages=["The " + crypto_name + " up more the 1%"])
+                elif diff_percent > 10:
+                    print("The ", data['symbol'], " up more the 1%")
+                    telegram_send.send(messages=["The " + crypto_name + " up more the 1%"])
+                elif diff_percent > 1:
+                    print("The ", data['symbol'], " up more the 1%")
+                    telegram_send.send(messages=["The " + crypto_name + " up more the 1%"])
 
             #BTC = BTC - 1
         except:
