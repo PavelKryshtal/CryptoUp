@@ -11,6 +11,9 @@ import min_max_price
 
 class Currency:
     BTC = 1
+    z = 0
+    crypto_day = ""
+    already_send_crypto =[]
     while BTC != 0:
         try:
             # Defining Binance API URL
@@ -100,24 +103,25 @@ class Currency:
                 #print("Maximus price was define - ", maximum_price)
                 #print("Minimum price was define - ", minimum_price)
                 crypto_name = data['symbol']
-                if diff_percent > 100:
+
+                """if diff_percent > 100:
                     print("The ", data['symbol'], " up more the 1%")
                     telegram_send.send(messages=["The " + crypto_name + " up more the 100%"])
                 elif diff_percent > 75:
                     print("The ", data['symbol'], " up more the 1%")
-                    telegram_send.send(messages=["The " + crypto_name + " up more the 1%"])
+                    telegram_send.send(messages=["The " + crypto_name + " up more the 75%"])
                 elif diff_percent > 50:
                     print("The ", data['symbol'], " up more the 1%")
-                    telegram_send.send(messages=["The " + crypto_name + " up more the 1%"])
+                    telegram_send.send(messages=["The " + crypto_name + " up more the 50%"])
                 elif diff_percent > 20:
                     print("The ", data['symbol'], " up more the 1%")
-                    telegram_send.send(messages=["The " + crypto_name + " up more the 1%"])
+                    telegram_send.send(messages=["The " + crypto_name + " up more the 20%"])
                 elif diff_percent > 10:
                     print("The ", data['symbol'], " up more the 1%")
-                    telegram_send.send(messages=["The " + crypto_name + " up more the 1%"])
+                    telegram_send.send(messages=["The " + crypto_name + " up more the 10%"])
                 elif diff_percent > 1:
                     print("The ", data['symbol'], " up more the 1%")
-                    telegram_send.send(messages=["The " + crypto_name + " up more the 1%"])
+                    telegram_send.send(messages=["The " + crypto_name + " up more the 1%"])*/"""
 
             #BTC = BTC - 1
         except:
