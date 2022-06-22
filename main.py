@@ -91,14 +91,16 @@ class Currency:
 
                 price_diff = maximum_price - minimum_price
                 diff_percent = 100 * price_diff
-                print(diff_percent)
+                #print(diff_percent)
                 diff_percent = diff_percent / minimum_price
 
-                print("Percent difference - ", diff_percent, "%")
-                print("Price difference - ", price_diff)
-                print("Maximus price was define - ", maximum_price)
-                print("Minimum price was define - ", minimum_price)
+                #print("Percent difference - ", diff_percent, "%")
+                #print("Price difference - ", price_diff)
+                #print("Maximus price was define - ", maximum_price)
+                #print("Minimum price was define - ", minimum_price)
+                if diff_percent > 1:
+                    print("The", data['symbol'], "up more the 1%")
 
-            BTC = BTC - 1
+            #BTC = BTC - 1
         except:
             print("Error. Something wrong. Probably problem with internet connection")
