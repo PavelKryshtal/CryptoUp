@@ -183,14 +183,14 @@ class Currency:
 
                 if diff_percent > 3 and used_crypto_5[per_0_5] != data['symbol']:
                     telegram_send.send(messages=["The " + crypto_name + " change more the 3%\nThe start day price is " + start_price + "\nThe min price is " + str_minimum_price + "\nThe max price is " + str_maximum_price + "\nThe percent price changes from zero point is " + str_percent_from_0_point + "%"])
-                    print("The the minimal/maximum ", data['symbol'], " changes more than 3%")
+                    #print("The the minimal/maximum ", data['symbol'], " changes more than 3%")
                     used_crypto_5.append("")
                     used_crypto_5[per_1_5] = data['symbol']
                     per_1_5 = per_1_5 + 1
                     new_date = date
 
                 elif diff_percent > 7 and used_crypto_4[per_0_4] != data['symbol']:
-                    print("The ", data['symbol'], " up more the 7%")
+                    #print("The ", data['symbol'], " up more the 7%")
                     telegram_send.send(messages=["The " + crypto_name + " change more the 7%\nThe start day price is " + start_price + "\nThe min price is " + str_minimum_price + "\nThe max price is " + str_maximum_price + "\nThe percent price changes from zero point is " + str_percent_from_0_point + "%"])
                     used_crypto_4.append("")
                     used_crypto_4[per_1_4] = data['symbol']
@@ -198,7 +198,7 @@ class Currency:
                     new_date = date
 
                 elif diff_percent > 13 and used_crypto_3[per_0_3] != data['symbol']:
-                    print("The ", data['symbol'], " up more the 13%")
+                    #print("The ", data['symbol'], " up more the 13%")
                     telegram_send.send(messages=["The " + crypto_name + " change more the 13%\nThe start day price is " + start_price + "\nThe min price is " + str_minimum_price + "\nThe max price is " + str_maximum_price + "\nThe percent price changes from zero point is " + str_percent_from_0_point + "%"])
                     used_crypto_3.append("")
                     used_crypto_3[per_1_3] = data['symbol']
@@ -206,7 +206,7 @@ class Currency:
                     new_date = date
 
                 elif diff_percent > 20 and used_crypto_2[per_0_2] != data['symbol']:
-                    print("The ", data['symbol'], " up more the 20%")
+                    #print("The ", data['symbol'], " up more the 20%")
                     telegram_send.send(messages=["The " + crypto_name + " change more the 20%\nThe start day price is " + start_price + "\nThe min price is " + str_minimum_price + "\nThe max price is " + str_maximum_price + "\nThe percent price changes from zero point is " + str_percent_from_0_point + "%"])
                     used_crypto_2.append("")
                     used_crypto_2[per_1_2] = data['symbol']
@@ -216,19 +216,19 @@ class Currency:
                 # This part will execute 1 time every day if cryptocurrency price change more than on 1 percent and
                 # message for chosen crypto wasn't already send in this day
                 elif diff_percent > 30 and used_crypto[per] != data['symbol']:
-                    print("The ", data['symbol'], " up more the 30%")
+                    #print("The ", data['symbol'], " up more the 30%")
                     telegram_send.send(messages=["The " + crypto_name + " change more the 30%\nThe start day price is " + start_price + "\nThe min price is " + str_minimum_price + "\nThe max price is " + str_maximum_price + "\nThe percent price changes from zero point is " + str_percent_from_0_point + "%"])
                     used_crypto.append("")
                     used_crypto[per_1] = data['symbol']
                     per_1 = per_1 + 1
                     new_date = date
 
-                print("used_crypto[per] = ", used_crypto[per])
-                print("per = ", per)
-                print("data['symbol'] = ", data['symbol'])
+                #print("used_crypto[per] = ", used_crypto[per])
+                #print("per = ", per)
+                #print("data['symbol'] = ", data['symbol'])
 
-                print("used_crypto[per_1] = ", used_crypto[per_1])
-                print("per_1 = ", per_1)
+                #print("used_crypto[per_1] = ", used_crypto[per_1])
+                #print("per_1 = ", per_1)
 
         except:
             print("Error. Something wrong. Probably problem with internet connection")
