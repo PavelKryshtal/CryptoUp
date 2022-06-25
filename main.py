@@ -124,20 +124,25 @@ class Currency:
                 a = 0
                 minimum_price = lst[0]
                 maximum_price = lst[0]
+                start_price = str(lst[0])
                 while a < number_of_elements:
 
                     if lst[a] > maximum_price:
                         maximum_price = lst[a]
+                        str_maximum_price = str(maximum_price)
 
                     if lst[a] < minimum_price:
                         minimum_price = lst[a]
+                        str_minimum_price = str(minimum_price)
                     a = a + 1
 
                 price_diff = maximum_price - minimum_price
+                price_diff_from_0 = maximum_price - lst[0]
+                price_diff_from_0 = price_diff_from_0 * 100
                 diff_percent = 100 * price_diff
-                #print(diff_percent)
                 diff_percent = diff_percent / minimum_price
-
+                percent_from_0_point = price_diff_from_0 / lst[0]
+                str_percent_from_0_point = str(percent_from_0_point)
                 crypto_name = data['symbol']
 
 
@@ -162,7 +167,6 @@ class Currency:
                         break
                     per_0_3 = per_0_3 + 1
 
-
                 # Crypto 4 check existing
                 per_0_4 = 0
                 while per_0_4 != per_1_4:
@@ -178,47 +182,47 @@ class Currency:
                     per_0_5 = per_0_5 + 1
 
                 if diff_percent > 3 and used_crypto_5[per_0_5] != data['symbol']:
-                    print("The ", data['symbol'], " up more the 3%")
-                    telegram_send.send(messages=["The " + crypto_name + " change more the 3%"])
+                    telegram_send.send(messages=["The " + crypto_name + " change more the 3%\nThe start day price is " + start_price + "\nThe min price is " + str_minimum_price + "\nThe max price is " + str_maximum_price + "\nThe percent price changes from zero point is " + str_percent_from_0_point + "%"])
+                    print("The the minimal/maximum ", data['symbol'], " changes more than 3%")
                     used_crypto_5.append("")
                     used_crypto_5[per_1_5] = data['symbol']
-
                     per_1_5 = per_1_5 + 1
                     new_date = date
+
                 elif diff_percent > 7 and used_crypto_4[per_0_4] != data['symbol']:
                     print("The ", data['symbol'], " up more the 7%")
-                    telegram_send.send(messages=["The " + crypto_name + " change more the 7%"])
+                    telegram_send.send(messages=["The " + crypto_name + " change more the 7%\nThe start day price is " + start_price + "\nThe min price is " + str_minimum_price + "\nThe max price is " + str_maximum_price + "\nThe percent price changes from zero point is " + str_percent_from_0_point + "%"])
                     used_crypto_4.append("")
                     used_crypto_4[per_1_4] = data['symbol']
-
                     per_1_4 = per_1_4 + 1
                     new_date = date
+
                 elif diff_percent > 13 and used_crypto_3[per_0_3] != data['symbol']:
                     print("The ", data['symbol'], " up more the 13%")
-                    telegram_send.send(messages=["The " + crypto_name + " change more the 13%"])
+                    telegram_send.send(messages=["The " + crypto_name + " change more the 13%\nThe start day price is " + start_price + "\nThe min price is " + str_minimum_price + "\nThe max price is " + str_maximum_price + "\nThe percent price changes from zero point is " + str_percent_from_0_point + "%"])
                     used_crypto_3.append("")
                     used_crypto_3[per_1_3] = data['symbol']
-
                     per_1_3 = per_1_3 + 1
                     new_date = date
+
                 elif diff_percent > 20 and used_crypto_2[per_0_2] != data['symbol']:
                     print("The ", data['symbol'], " up more the 20%")
-                    telegram_send.send(messages=["The " + crypto_name + " change more the 20%"])
+                    telegram_send.send(messages=["The " + crypto_name + " change more the 20%\nThe start day price is " + start_price + "\nThe min price is " + str_minimum_price + "\nThe max price is " + str_maximum_price + "\nThe percent price changes from zero point is " + str_percent_from_0_point + "%"])
                     used_crypto_2.append("")
                     used_crypto_2[per_1_2] = data['symbol']
-
                     per_1_2 = per_1_2 + 1
                     new_date = date
+
                 # This part will execute 1 time every day if cryptocurrency price change more than on 1 percent and
                 # message for chosen crypto wasn't already send in this day
                 elif diff_percent > 30 and used_crypto[per] != data['symbol']:
                     print("The ", data['symbol'], " up more the 30%")
-                    telegram_send.send(messages=["The " + crypto_name + " change more the 30%"])
+                    telegram_send.send(messages=["The " + crypto_name + " change more the 30%\nThe start day price is " + start_price + "\nThe min price is " + str_minimum_price + "\nThe max price is " + str_maximum_price + "\nThe percent price changes from zero point is " + str_percent_from_0_point + "%"])
                     used_crypto.append("")
                     used_crypto[per_1] = data['symbol']
-
                     per_1 = per_1 + 1
                     new_date = date
+
                 print("used_crypto[per] = ", used_crypto[per])
                 print("per = ", per)
                 print("data['symbol'] = ", data['symbol'])
