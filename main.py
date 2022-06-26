@@ -52,7 +52,8 @@ class Currency:
             key = "https://api.binance.com/api/v3/ticker/price?symbol="
             print("Connect to Binance")
             # Making list for multiple crypto's
-            currencies = ["BTCUSDT", "DOGEUSDT", "LTCUSDT", "ADAUSDT", "ACHBUSD"]
+            currencies = ["BTCUSDT", "DOGEUSDT", "LTCUSDT", "ADAUSDT", "ACHBUSD", "TRUUSDT", "GLMRBUSD", "USTCBUSD", "APEBUSD", "SANDBUSD", "FARMBUSD", "SPELLBUSD", "AUTOBUSD",
+                          "YGGBUSD", "GMTBUSD", "TRUUSDT"]
             j = 0
 
             # running loop to print all crypto prices
@@ -72,13 +73,38 @@ class Currency:
                 date = f"{now:{data_format}}"
 
                 if new_date != date:
+                    new_date = ""
+
+                    # percent 1
                     used_crypto = []
                     per_1 = 0
                     used_crypto.append("")
                     used_crypto[0] = "1skldnf"
 
-                if new_date != date:
-                    new_date = ""
+                    # percent 2
+                    used_crypto_2 = []
+                    per_1_2 = 0
+                    used_crypto_2.append("")
+                    used_crypto_2[0] = "1skldnf"
+
+                    # percent 3
+                    used_crypto_3 = []
+                    per_1_3 = 0
+                    used_crypto_3.append("")
+                    used_crypto_3[0] = "1skldnf"
+
+                    # percent 4
+                    used_crypto_4 = []
+                    per_1_4 = 0
+                    used_crypto_4.append("")
+                    used_crypto_4[0] = "1skldnf"
+
+                    # percent 5
+                    used_crypto_5 = []
+                    per_1_5 = 0
+                    used_crypto_5.append("")
+                    used_crypto_5[0] = "1skldnf"
+
 
                 # Connection to database
                 connection = pymysql.connect(host="192.168.0.31", port=3306, user="pavel", passwd="1234",
